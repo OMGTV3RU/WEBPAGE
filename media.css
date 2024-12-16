@@ -1,0 +1,11 @@
+@media (max-width: 1000px){
+    .nav-links{
+        display: none;
+    }
+
+    .logo{
+        font-size: 40px;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+}
