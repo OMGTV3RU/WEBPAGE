@@ -7,40 +7,55 @@
     padding: 0;
     scroll-behavior: smooth;
 }
-:root{
-    --color-purple:#792AFF;
+
+:root {
+    --color-purple: #792AFF;
 }
 
-.active{
+.active {
     background-color: #BBFF2C !important;
 }
 
-nav{
+nav {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 999;
 
-    & .fixed-menu{
+    & .fixed-menu {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex: 1;
 
-        & .logo{
+        & .logo {
+            --fs: 80px;
+            --pl: 50px;
             color: #BBFF2C;
-            font-size: 80px;
-            padding-left: 50px;
+            font-size: var(--fs);
+            padding-left: var(--pl);
+
+            @media(width < 1000px) {
+                --pl: 20px;
+                font-size: calc(var(--fs) / 2);
+                padding-left: var(--pl);
+                padding-top: 10px;
+
+            }
         }
 
-        & .nav-links{
+        & .nav-links {
             display: flex;
             justify-content: center;
             flex-grow: 1;
             padding-right: 150px;
             gap: 20px;
 
-            & .nav-link{
+            @media(width < 1000px) {
+                display: none;
+            }
+
+            & .nav-link {
                 width: 112px;
                 height: 40px;
                 border-radius: 12px;
@@ -55,11 +70,11 @@ nav{
                 align-items: center;
                 transition: all 0.5s;
 
-                &:hover{
+                &:hover {
                     background-color: var(--color-purple);
                     color: #fff;
                 }
-                
+
             }
         }
     }
@@ -143,18 +158,28 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 2;
+
+    @media(width < 1000px) {
+        max-width: 320px;
+    }
 }
 
 .main-title {
     color: #2b2d35;
-    font-size: 80px;
+    font-size: clamp(24px,5vw ,80px);
     padding-top: 67px;
+
+  
 }
 
 .main-subtitle {
     font-size: 20px;
     color: #2B2D35;
     font-family: Comfortaa;
+
+    @media(width < 1000px) {
+        font-size: 15px;
+    }
 }
 
 .button {
@@ -191,6 +216,10 @@ section {
     top: 400px;
     right: 300px;
     transform: rotate(1deg);
+
+    @media (width<1000px) {
+       display: none; 
+    }
 }
 
 .moving-planet {
@@ -203,6 +232,10 @@ section {
     bottom: 30px;
     left: 30px;
     animation: move 2s infinite alternate linear;
+
+    @media(width < 1000px) {
+        display: none;
+    }
 }
 
 .title {
@@ -213,11 +246,32 @@ section {
     font-size: 80px;
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 1);
 
+    @media(width < 1000px) {
+        font-size: 50px;
+        padding-top: 30px;
+    }
+
+}
+
+.about-block {
+    @media(width < 1000px) {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        padding: 0;
+    }
 }
 
 .about-content {
     display: flex;
     align-items: center;
+
+    @media(width < 1000px) {
+        width: 75%;
+        height: 250px;
+        margin-top: 20px;
+        flex-direction: column;
+    }
 
 }
 
@@ -242,6 +296,10 @@ section {
     margin-bottom: 20px;
     font-family: "Comfortaa";
 
+    @media(width < 1000px) {
+        font-size: 18px;
+    }
+
 }
 
 .about-card {
@@ -256,6 +314,13 @@ section {
     width: 376px;
     height: 346px;
 
+    @media(width < 1000px) {
+        order: -1;
+        background-size: contain;
+        padding-top: 20px;
+        width: 326px;
+        height: 296px;
+    }
 }
 
 .about-card p {
@@ -269,7 +334,13 @@ section {
 
 .about-card img {
     margin-bottom: 20px;
+
+    @media(width < 1000px) {
+        width: 85%;
+    }
 }
+
+
 
 .skills-card {
     display: flex;
@@ -285,11 +356,21 @@ section {
     width: 60%;
     background-position: center top;
 
+    @media(width < 1000px) {
+        margin: 20px;
+        padding-left: 10px;
+        background-size: 120vw 90vw;
+    }
+
 
     & .languages>img {
         width: 100px;
         height: auto;
         margin-bottom: 10px;
+
+        @media (width < 1000px) {
+            width: 50px;
+        }
     }
 
     & p {
@@ -300,16 +381,35 @@ section {
         text-align: center;
         max-width: 500px;
         font-family: "Comfortaa";
+
+        @media(width < 1000px) {
+            font-size: 16px;
+            margin-top: 15%;
+            margin-bottom: 20px;
+
+        }
     }
 }
 
 
 #works {
     & .works-block {
+
+        @media(width < 1000px) {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 0;
+        }
+
         & img {
             height: auto;
             width: 27%;
             margin-right: 18px;
+
+            @media(width < 1000px) {
+                margin: 20px 0;
+                width: 80%;
+            }
         }
     }
 }
@@ -322,6 +422,10 @@ section {
     position: absolute;
     bottom: 30px;
     animation: move 2s infinite alternate linear;
+
+    @media(width < 1000px) {
+        display: none;
+    }
 }
 
 @keyframes move {
@@ -339,6 +443,16 @@ section {
     max-width: 1150px;
     margin: auto;
     justify-content: space-evenly;
+
+    @media(width < 1000px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0 auto;
+        padding-top: 50px;
+
+    }
 }
 
 .comments-card {
@@ -353,7 +467,7 @@ section {
     background-position: center;
     background-size: contain;
 
-    & img{
+    & img {
         width: 80%;
     }
 }
@@ -400,7 +514,16 @@ footer {
     align-items: center;
     color: #fff;
 
+    @media(width < 1000px) {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
     & .footer-info {
+
         & p {
             font-family: "Comfortaa";
             padding-bottom: 10px;
@@ -410,19 +533,19 @@ footer {
     & .footer-year {
         & p {
             font-family: "Comfortaa";
-            letter-spacing: 1.5px;  
+            letter-spacing: 1.5px;
         }
     }
 
     & .footer-links {
-            display: flex;
-            gap: 15px;
+        display: flex;
+        gap: 15px;
     }
 }
 
-@media (max-width: 1000px){
-    .nav-links{
-        display: none !important; 
+/* @media (width < 1000px){ 
+    .navy-links{
+        display: none ; 
     }
 
     .logo{
@@ -430,4 +553,4 @@ footer {
         padding-left: 20px;
         padding-top: 10px;
     }
-}
+} */
