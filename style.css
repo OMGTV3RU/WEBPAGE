@@ -69,6 +69,8 @@ nav {
                 display: flex;
                 margin-right: 20px;
                 align-items: center;
+                border: 2px white solid;
+                border-radius: 8px;
             }
         }
 
